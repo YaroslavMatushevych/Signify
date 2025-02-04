@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node", // This ensures it looks for index files
+        "baseUrl": "../client/src", // Optional: Allows imports relative to `src`
+        "paths": {
+            "*": [
+                "../client/node_modules/*"
+            ]
+        },
+        "jsx": "react-jsx", // Correct JSX support
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    }
+}

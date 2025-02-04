@@ -1,0 +1,62 @@
+{
+    "extends": ["airbnb", "airbnb/hooks", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            },
+            "typescript": {}
+        }
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "quotes": ["error", "single"],
+        "operator-linebreak": "off",
+        "no-param-reassign": "off",
+        "consistent-return": "off",
+        "max-len": ["error", 160],
+        "object-curly-newline": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "react/no-array-index-key": "off",
+        "react/jsx-wrap-multilines": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/require-default-props": "off",
+        "react/function-component-definition": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": "off",
+        "import/prefer-default-export": "off",
+        "react/jsx-filename-extension": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "ts": "never",
+                "tsx": "never",
+                "js": "never",
+                "jsx": "never"
+            }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true
+            }
+        ],
+        "eslint@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "no-plusplus": "off"
+    }
+}
