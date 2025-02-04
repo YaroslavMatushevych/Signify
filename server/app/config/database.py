@@ -1,16 +1,18 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from app.config.settings import DATABASE_URL
+import os
 
-# PostgreSQL engine
-engine = create_engine(DATABASE_URL)
+# Set the database URL with SQLite as a fallback
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./signify.db")
 
-# Session and Base
+# Create the engine and session maker based on the database URL
+if DATABASE_URL.startswith("sqlite"):
+    engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+else:
+    engine = create_engine(DATABASE_URL)
+
+# Configure the session maker
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
 
-# Function to create the database tables
-def create_database():
-    from app.models.user import User  # Import models here
-    Base.metadata.create_all(bind=engine)
+Base = declarative_base()
